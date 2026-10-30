@@ -56,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const isProduction = process.env.NODE_ENV === "production";
-  const rawApiUrl = process.env.NEXT_PUBLIC_CLINIVA_API_URL?.trim();
+  const rawApiUrl = process.env.NEXT_PUBLIC_CLINIVA_API_URL?.trim().replace(/^["']|["']$/g, "");
 
   // Validação estrita da URL do Cliniva:
   // Em produção: EXIGE NEXT_PUBLIC_CLINIVA_API_URL configurada como URL HTTPS válida, sem localhost.
@@ -81,7 +81,8 @@ export default function RootLayout({
     clinivaApiUrl = (rawApiUrl || "http://localhost:3002").replace(/\/$/, "");
   }
 
-  const clinivaTherapist = process.env.NEXT_PUBLIC_CLINIVA_THERAPIST || "dra-cristiane";
+  const clinivaTherapist =
+    process.env.NEXT_PUBLIC_CLINIVA_THERAPIST?.trim().replace(/^["']|["']$/g, "") || "dra-cristiane";
 
   if (widgetWarning && typeof console !== "undefined") {
     console.warn(widgetWarning);

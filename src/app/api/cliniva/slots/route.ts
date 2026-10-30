@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
     );
   }
 
-  const clinivaBase = process.env.NEXT_PUBLIC_CLINIVA_API_URL?.trim();
+  const clinivaBase = process.env.NEXT_PUBLIC_CLINIVA_API_URL?.trim().replace(/^["']|["']$/g, "");
   const isProduction = process.env.NODE_ENV === "production";
 
   // Se houver uma URL base do Cliniva configurada, SEMPRE consulta a API real do Cliniva

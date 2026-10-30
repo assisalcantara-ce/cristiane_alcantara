@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Acesso rejeitado" }, { status: 400 });
     }
 
-    const clinivaBase = process.env.NEXT_PUBLIC_CLINIVA_API_URL?.trim();
+    const clinivaBase = process.env.NEXT_PUBLIC_CLINIVA_API_URL?.trim().replace(/^["']|["']$/g, "");
     const isProduction = process.env.NODE_ENV === "production";
 
     // Extrai o telefone do payload para montar o anamnesis mínimo conforme contrato oficial
