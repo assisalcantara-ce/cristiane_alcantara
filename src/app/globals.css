@@ -62,13 +62,17 @@
 /* ============================================================
    Launcher Visual Customizado: Assistente Virtual Cliniva
    Identidade visual com personagem, balão e identificação
+   Alta especificidade para sobrepor estilos injetados dinamicamente
    ============================================================ */
-#cliniva-chat-widget-root .cliniva-btn-launcher {
+#cliniva-chat-widget-root button#cliniva-trigger-open.cliniva-btn-launcher,
+#cliniva-chat-widget-root button.cliniva-btn-launcher,
+html body #cliniva-chat-widget-root .cliniva-btn-launcher {
   background-color: transparent !important;
   background-image: url('/images/assistente.png') !important;
   background-repeat: no-repeat !important;
   background-position: center bottom !important;
   background-size: contain !important;
+  background: transparent url('/images/assistente.png') no-repeat center bottom / contain !important;
   border: none !important;
   border-radius: 0 !important;
   box-shadow: none !important;
@@ -98,6 +102,7 @@
 }
 
 /* Oculta qualquer elemento filho interno do launcher (avatar duplicado, badges, svg, span, div) */
+#cliniva-chat-widget-root button#cliniva-trigger-open.cliniva-btn-launcher > *,
 #cliniva-chat-widget-root .cliniva-btn-launcher > * {
   display: none !important;
 }
@@ -136,6 +141,7 @@
 
 /* Destaque sutil ao passar o cursor (Desktop) */
 @media (hover: hover) and (pointer: fine) {
+  #cliniva-chat-widget-root button#cliniva-trigger-open.cliniva-btn-launcher:hover,
   #cliniva-chat-widget-root .cliniva-btn-launcher:hover {
     transform: scale(1.04) translateY(-3px) !important;
     filter: drop-shadow(0 14px 26px rgba(104, 21, 45, 0.32)) drop-shadow(0 0 14px rgba(183, 132, 73, 0.45)) !important;
@@ -143,11 +149,13 @@
 }
 
 /* Feedback tátil ao clique / toque */
+#cliniva-chat-widget-root button#cliniva-trigger-open.cliniva-btn-launcher:active,
 #cliniva-chat-widget-root .cliniva-btn-launcher:active {
   transform: scale(0.97) !important;
 }
 
 /* Acessibilidade por teclado */
+#cliniva-chat-widget-root button#cliniva-trigger-open.cliniva-btn-launcher:focus-visible,
 #cliniva-chat-widget-root .cliniva-btn-launcher:focus-visible {
   outline: 2px solid #B78449 !important;
   outline-offset: 4px !important;
