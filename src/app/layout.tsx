@@ -100,6 +100,7 @@ export default function RootLayout({
             data-slug={clinivaTherapist}
             data-api-url={clinivaApiUrl}
             data-launcher-image="/images/assistente.png"
+            data-avatar-url="/images/cris.jpeg"
             data-primary-color="#68152D"
             data-accent-color="#B78449"
             data-title="Dra. Cristiane Alcântara"

@@ -93,9 +93,14 @@
   transform-origin: bottom right;
 }
 
-/* Oculta o SVG e span padrões do launcher sem alterar o DOM ou quebrar eventos */
+/* Oculta qualquer elemento filho interno do launcher (avatar duplicado, badges, svg, span, div) */
+#cliniva-chat-widget-root .cliniva-btn-launcher > * {
+  display: none !important;
+}
 #cliniva-chat-widget-root .cliniva-btn-launcher svg,
-#cliniva-chat-widget-root .cliniva-btn-launcher span {
+#cliniva-chat-widget-root .cliniva-btn-launcher span,
+#cliniva-chat-widget-root .cliniva-btn-launcher div,
+#cliniva-chat-widget-root .cliniva-btn-launcher .cliniva-launcher-avatar-wrap {
   display: none !important;
 }
 
@@ -144,9 +149,9 @@
   }
 }
 
-/* Responsividade Mobile (< 640px) */
+/* Responsividade Mobile (< 640px) — aplicada estritamente ao launcher para não interferir na janela de chat */
 @media (max-width: 640px) {
-  #cliniva-chat-widget-root {
+  #cliniva-chat-widget-root:has(.cliniva-btn-launcher) {
     bottom: 14px !important;
     right: 14px !important;
   }
@@ -163,3 +168,4 @@
     transition: none !important;
   }
 }
+
