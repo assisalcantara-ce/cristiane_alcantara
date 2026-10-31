@@ -64,7 +64,11 @@
    Identidade visual com personagem, balão e identificação
    ============================================================ */
 #cliniva-chat-widget-root .cliniva-btn-launcher {
-  background: transparent url('/images/assistente.png') no-repeat center bottom / contain !important;
+  background-color: transparent !important;
+  background-image: url('/images/assistente.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center bottom !important;
+  background-size: contain !important;
   border: none !important;
   border-radius: 0 !important;
   box-shadow: none !important;
@@ -102,6 +106,32 @@
 #cliniva-chat-widget-root .cliniva-btn-launcher div,
 #cliniva-chat-widget-root .cliniva-btn-launcher .cliniva-launcher-avatar-wrap {
   display: none !important;
+}
+
+/* ============================================================
+   Avatar Oficial do Cabeçalho do Chat
+   Foco centralizado no rosto (/images/cris.jpeg)
+   ============================================================ */
+#cliniva-chat-widget-root .cliniva-header-avatar-wrap {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  border: 2px solid #B78449 !important;
+  position: relative !important;
+  background-color: #FAF6F1 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+#cliniva-chat-widget-root .cliniva-header-avatar-img {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  object-position: center 20% !important;
+  display: block !important;
 }
 
 /* Destaque sutil ao passar o cursor (Desktop) */
