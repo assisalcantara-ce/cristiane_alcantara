@@ -219,15 +219,29 @@ export default function Home() {
 
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Lado Esquerdo: Imagem oficial card1.png com recorte orgânico suave */}
+            {/* Lado Esquerdo: Imagem oficial card1.png (Desktop/Tablet) e cris.jpeg (Mobile) */}
             <div className="lg:col-span-5 flex justify-center lg:justify-start">
-              <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-[1136/1385] rounded-[24px] overflow-hidden shadow-xl border border-[#B78449]/20 group">
+              {/* Versão Mobile (< 768px): cris.jpeg */}
+              <div className="md:hidden relative w-full max-w-[320px] sm:max-w-[360px] aspect-[1086/1448] rounded-[24px] overflow-hidden shadow-xl border border-[#B78449]/20 group">
+                <Image
+                  src="/images/cris.jpeg"
+                  alt="Cristiane Alcântara — Psicanalista Cristã"
+                  fill
+                  priority
+                  className="object-cover object-center group-hover:scale-102 transition-transform duration-500"
+                  sizes="(max-width: 768px) 320px, 360px"
+                />
+              </div>
+
+              {/* Versão Desktop/Tablet (>= 768px): card1.png */}
+              <div className="hidden md:block relative w-full max-w-[340px] sm:max-w-[380px] aspect-[1136/1385] rounded-[24px] overflow-hidden shadow-xl border border-[#B78449]/20 group">
                 <Image
                   src="/images/card1.png"
                   alt="Cristiane Alcântara — Psicanalista Cristã"
                   fill
                   priority
                   className="object-cover object-center group-hover:scale-102 transition-transform duration-500"
+                  sizes="(max-width: 1024px) 380px, 420px"
                 />
               </div>
             </div>
